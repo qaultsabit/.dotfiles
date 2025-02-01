@@ -17,9 +17,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup({
+require('lazy').setup {
   -- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
-  -- 'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
 
   -- Use `opts = {}` to force a plugin to be loaded.
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -71,6 +70,7 @@ require('lazy').setup({
           return {
             background = '#333333',
             dark = '#000000',
+            olive_green = '#7ca563',
           }
         end,
         opt = {
@@ -87,4 +87,4 @@ require('lazy').setup({
   },
 
   { import = 'plugins' },
-})
+}
