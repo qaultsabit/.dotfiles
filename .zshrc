@@ -22,7 +22,6 @@ export GOPATH=$HOME/Developer/go
 export PATH=$PATH:$GOPATH/bin
 
 # java
-alias idea='/Applications/IntelliJ\ IDEA.app/Contents/MacOS/idea'
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21
