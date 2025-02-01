@@ -75,7 +75,7 @@ require('lazy').setup({
         end,
         opt = {
           integrations = {
-            telescope = false,
+            telescope = true,
             lualine = true,
             lsp_semantics_token = true,
             nvim_cmp = true,
