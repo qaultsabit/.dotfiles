@@ -27,9 +27,7 @@ return {
       'rust',
       'toml',
     },
-    highlight = {
-      enable = true,
-    },
+    highlight = { enable = true },
     indent = { enable = true },
   },
 }
