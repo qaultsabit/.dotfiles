@@ -52,8 +52,9 @@ return {
       defaults = {
         mappings = {
           i = {
-            -- ['<c-enter>'] = 'to_fuzzy_refine',
             ['<esc>'] = require('telescope.actions').close,
+            ['<Tab>'] = require('telescope.actions').move_selection_next,
+            ['<S-Tab>'] = require('telescope.actions').move_selection_previous,
           },
         },
       },
