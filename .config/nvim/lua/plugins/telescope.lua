@@ -50,6 +50,11 @@ return {
       --  All the info you're looking for is in `:help telescope.setup()`
       --
       defaults = require('telescope.themes').get_dropdown {
+        layout_strategy = 'flex',
+        layout_config = {
+          width = 0.8,
+          height = 0.8,
+        },
         mappings = {
           i = {
             ['<esc>'] = require('telescope.actions').close,
