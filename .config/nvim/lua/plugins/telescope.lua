@@ -49,7 +49,7 @@ return {
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       --
-      defaults = {
+      defaults = require('telescope.themes').get_dropdown {
         mappings = {
           i = {
             ['<esc>'] = require('telescope.actions').close,
@@ -58,12 +58,12 @@ return {
           },
         },
       },
-      -- pickers = {}
-      -- extensions = {
-      --   ['ui-select'] = {
-      --     require('telescope.themes').get_dropdown(),
-      --   },
-      -- },
+      pickers = {
+        current_buffer_fuzzy_find = {
+          theme = 'dropdown',
+          previewer = false,
+        },
+      },
     }
 
     -- Enable Telescope extensions if they are installed
@@ -82,14 +82,7 @@ return {
     vim.keymap.set('n', '<leader>fr', builtin.resume, { desc = '[F]ind [R]esume' })
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = '[F]ind existing [B]uffers' })
-
-    -- Slightly advanced example of overriding default behavior and theme
-    vim.keymap.set('n', '<leader>f/', function()
-      -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-        previewer = false,
-      })
-    end, { desc = '[F]uzzily [/] search in current buffer' })
+    vim.keymap.set('n', '<leader>f/', builtin.current_buffer_fuzzy_find, { desc = '[F]uzzily [/] search in current buffer' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>fn', function()
