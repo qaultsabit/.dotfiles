@@ -27,6 +27,11 @@ return {
         group_empty = true,
         indent_markers = { enable = true },
       },
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
+      },
     }
   end,
 }
