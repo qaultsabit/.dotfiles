@@ -6,18 +6,11 @@ vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostic list" })
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.cursorline = true
+vim.opt.scrolloff = 10
 vim.opt.mouse = "a"
-vim.opt.showmode = false
 vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
@@ -34,8 +27,14 @@ vim.opt.timeoutlen = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
-vim.opt.cursorline = true
-vim.opt.scrolloff = 10
+
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostic list" })
+vim.keymap.set("i", "jk", "<Esc>")
+vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
