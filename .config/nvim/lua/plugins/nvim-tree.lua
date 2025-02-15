@@ -8,7 +8,10 @@ return {
     },
     config = function()
         require("nvim-tree").setup({
-            filters = { dotfiles = false },
+            filters = {
+                dotfiles = false,
+                custom = { "^.git$" },
+            },
             disable_netrw = true,
             view = {
                 float = {
@@ -38,6 +41,7 @@ return {
                 root_folder_label = false,
                 highlight_git = true,
                 group_empty = true,
+                indent_markers = { enable = true },
             },
             actions = {
                 open_file = {
