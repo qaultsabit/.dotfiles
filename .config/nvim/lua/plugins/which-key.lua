@@ -4,6 +4,7 @@ return {
   opts = {
     icons = {
       mappings = false,
+      separator = "",
     },
     spec = {
       { "<leader>c", group = "code", mode = { "n", "x" } },
