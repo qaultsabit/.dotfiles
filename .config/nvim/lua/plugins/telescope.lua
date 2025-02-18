@@ -18,6 +18,7 @@ return {
       defaults = {
         layout_strategy = "horizontal",
         sorting_strategy = "ascending",
+        file_ignore_patterns = { "%.git/", "node_modules/" },
         mappings = {
           i = {
             ["<esc>"] = require("telescope.actions").close,
