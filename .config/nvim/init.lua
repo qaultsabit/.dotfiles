@@ -37,6 +37,12 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "move to top window" })
 vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bp<CR>", { desc = "previous buffer" })
+vim.api.nvim_set_keymap(
+  "n",
+  "<leader>tc",
+  ':lua vim.g.copilot_enabled = not vim.g.copilot_enabled print("copilot " .. (vim.g.copilot_enabled and "on" or "off"))<CR>',
+  { noremap = true, silent = true, desc = "toggle copilot" }
+)
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
