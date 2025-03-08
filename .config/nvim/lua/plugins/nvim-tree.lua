@@ -33,6 +33,7 @@ return {
         group_empty = true,
         indent_markers = { enable = true },
       },
+      git = { ignore = false },
       actions = { open_file = { window_picker = { enable = false } } },
     })
 
