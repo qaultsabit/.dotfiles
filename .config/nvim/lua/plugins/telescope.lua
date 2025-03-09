@@ -14,10 +14,34 @@ return {
     { "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
   },
   config = function()
+    require("telescope.pickers.layout_strategies").my_strategy = function(picker, max_columns, max_lines, layout_config)
+      local layout =
+        require("telescope.pickers.layout_strategies").horizontal(picker, max_columns, max_lines, layout_config)
+
+      layout.prompt.title = ""
+      layout.results.title = ""
+      layout.results.line = layout.results.line - 2
+      layout.results.height = layout.results.height + 2
+
+      layout.preview = false
+
+      return layout
+    end
+
     require("telescope").setup({
       defaults = {
-        layout_strategy = "horizontal",
+        layout_strategy = "my_strategy",
+        layout_config = {
+          prompt_position = "top",
+        },
         sorting_strategy = "ascending",
+        prompt_prefix = "",
+        selection_caret = "",
+        entry_prefix = "",
+        multi_icon = "",
+        results_title = false,
+        dynamic_preview_title = "",
+        borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
         file_ignore_patterns = { "%.git/", "node_modules/" },
         mappings = {
           i = {
@@ -29,8 +53,6 @@ return {
       },
       pickers = {
         find_files = { hidden = true },
-        live_grep = { theme = "dropdown" },
-        current_buffer_fuzzy_find = { theme = "dropdown" },
       },
       extensions = {
         fzf = {
