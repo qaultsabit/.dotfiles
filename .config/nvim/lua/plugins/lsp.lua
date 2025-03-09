@@ -22,8 +22,6 @@ return {
           map("gi", telescope.lsp_implementations, "goto implementation")
           map("gt", telescope.lsp_type_definitions, "goto type definition")
           map("gD", vim.lsp.buf.declaration, "goto declaration")
-          map("gs", vim.lsp.buf.signature_help, "signature help")
-          map("<c-k>", vim.lsp.buf.signature_help, "signature help", "i")
           map("<leader>cr", vim.lsp.buf.rename, "rename")
           map("<leader>ca", vim.lsp.buf.code_action, "code action", { "n", "x" })
 
