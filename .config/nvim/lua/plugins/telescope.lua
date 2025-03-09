@@ -16,14 +16,14 @@ return {
   config = function()
     require("telescope.pickers.layout_strategies").my_strategy = function(picker, max_columns, max_lines, layout_config)
       local layout =
-        require("telescope.pickers.layout_strategies").vertical(picker, max_columns, max_lines, layout_config)
+        require("telescope.pickers.layout_strategies").horizontal(picker, max_columns, max_lines, layout_config)
 
       layout.prompt.title = ""
       layout.results.title = ""
       layout.results.line = layout.results.line - 2
       layout.results.height = layout.results.height + 2
-
       -- layout.preview = false
+      layout.preview.title = ""
 
       return layout
     end
@@ -79,5 +79,12 @@ return {
     )
     keymap("n", "<leader>fm", "<cmd>Telescope marks<CR>", { noremap = true, silent = true, desc = "find marks" })
     keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true, desc = "find quickfix" })
+    -- diagnostics
+    keymap(
+      "n",
+      "<leader>fd",
+      "<cmd>Telescope diagnostics<CR>",
+      { noremap = true, silent = true, desc = "find diagnostics" }
+    )
   end,
 }
