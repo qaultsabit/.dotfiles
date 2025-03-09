@@ -16,14 +16,14 @@ return {
   config = function()
     require("telescope.pickers.layout_strategies").my_strategy = function(picker, max_columns, max_lines, layout_config)
       local layout =
-        require("telescope.pickers.layout_strategies").horizontal(picker, max_columns, max_lines, layout_config)
+        require("telescope.pickers.layout_strategies").vertical(picker, max_columns, max_lines, layout_config)
 
       layout.prompt.title = ""
       layout.results.title = ""
       layout.results.line = layout.results.line - 2
       layout.results.height = layout.results.height + 2
 
-      layout.preview = false
+      -- layout.preview = false
 
       return layout
     end
@@ -35,7 +35,7 @@ return {
           prompt_position = "top",
         },
         sorting_strategy = "ascending",
-        prompt_prefix = "",
+        -- prompt_prefix = "",
         selection_caret = "",
         entry_prefix = "",
         multi_icon = "",
