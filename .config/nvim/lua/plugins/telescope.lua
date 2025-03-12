@@ -23,7 +23,9 @@ return {
       layout.results.line = layout.results.line - 2
       layout.results.height = layout.results.height + 2
       -- layout.preview = false
-      layout.preview.title = ""
+      if type(layout.preview) == "table" then
+        layout.preview.title = ""
+      end
 
       return layout
     end
