@@ -3,6 +3,7 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter-context",
   },
   main = "nvim-treesitter.configs",
   opts = {
@@ -51,6 +52,10 @@ return {
           ["ia"] = "@parameter.inner",
         },
       },
+    },
+    context = {
+      enable = true,
+      throttle = true,
     },
   },
 }
