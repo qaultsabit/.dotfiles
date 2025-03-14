@@ -8,7 +8,7 @@ return {
       terminal_colors = true,
       on_highlights = function(highlights, colors)
         highlights.Visual = { bg = colors.blue, fg = colors.black }
-        highlights.TelescopeSelection = { bg = colors.bg_highlight, fg = colors.fg, bold = true }
+        highlights.TelescopeSelection = { bg = colors.bg_highlight, bold = true }
         highlights.TelescopeMatching = { fg = colors.orange }
       end,
     })
