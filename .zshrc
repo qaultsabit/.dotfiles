@@ -5,8 +5,8 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # rust
 . "$HOME/.cargo/env"
 
-# go
-export GOPATH=$HOME/Developer/go
+# # go
+export GOPATH=$HOME/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 # java
