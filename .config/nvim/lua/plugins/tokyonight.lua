@@ -6,10 +6,13 @@ return {
     require("tokyonight").setup({
       style = "storm",
       terminal_colors = true,
-      on_highlights = function(highlights, colors)
-        highlights.Visual = { bg = colors.yellow, fg = colors.black }
-        highlights.TelescopeSelection = { bg = colors.bg_highlight, bold = true }
-        highlights.TelescopeMatching = { fg = colors.orange }
+      on_highlights = function(hl, c)
+        hl.Visual = { bg = c.yellow, fg = c.black }
+        hl.TelescopeSelection = { bg = c.bg_highlight, bold = true }
+        hl.TelescopeMatching = { fg = c.orange }
+        hl.LineNrAbove = { fg = c.yellow }
+        hl.LineNrBelow = { fg = c.yellow }
+        hl.CursorLineNr = { fg = c.orange }
       end,
     })
     vim.cmd("colorscheme tokyonight")
