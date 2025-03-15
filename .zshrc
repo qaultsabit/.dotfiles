@@ -19,10 +19,14 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"
 
-# # git satus
+# prompt
 source /opt/homebrew/opt/gitstatus/gitstatus.prompt.zsh
 PROMPT="%F{yellow}%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f"
 PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} '
 # PROMPT+=$'\n'  
 PROMPT+='%F{%(?.yellow.red)}›%f '
+
+if [[ -z "$TMUX" ]]; then
+  exec tmux
+fi
 
