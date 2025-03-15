@@ -7,7 +7,7 @@ return {
       style = "storm",
       terminal_colors = true,
       on_highlights = function(highlights, colors)
-        highlights.Visual = { bg = colors.blue, fg = colors.black }
+        highlights.Visual = { bg = colors.yellow, fg = colors.black }
         highlights.TelescopeSelection = { bg = colors.bg_highlight, bold = true }
         highlights.TelescopeMatching = { fg = colors.orange }
       end,
