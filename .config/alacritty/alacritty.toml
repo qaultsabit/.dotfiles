@@ -4,7 +4,7 @@ TERM = "xterm-256color"
 [font]
 size = 14.0
 normal = { family = "FiraMono Nerd Font Mono", style = "Regular" }
-bold = { family = "FiraMono Nerd Font Mono", style = "Bold" }
+bold = { family = "FiraMono Nerd Font Mono", style = "Medium" }
 
 [colors]
 [colors.cursor]
