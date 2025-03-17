@@ -30,3 +30,5 @@ if [[ -z "$TMUX" ]]; then
   exec tmux
 fi
 
+alias vim=nvim
+alias cat=bat

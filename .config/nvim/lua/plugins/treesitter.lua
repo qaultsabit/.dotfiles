@@ -22,6 +22,7 @@ return {
       "css",
       "json",
       "yaml",
+      "protobuf",
     },
     highlight = { enable = true },
     indent = { enable = true },
