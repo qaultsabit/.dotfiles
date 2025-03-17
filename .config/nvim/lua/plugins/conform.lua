@@ -30,7 +30,6 @@ return {
     formatters_by_ft = {
       lua = { "stylua" },
       go = { "gofumpt", "goimports" },
-      c = { "clang-format" },
       html = { "prettier" },
       css = { "prettier" },
       javascript = { "prettier" },
