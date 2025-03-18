@@ -6,8 +6,8 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 . "$HOME/.cargo/env"
 
 # # go
-export GOPATH=$HOME/dev/go
-export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
 
 # java
 export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
