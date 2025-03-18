@@ -55,6 +55,7 @@ return {
       },
       pickers = {
         find_files = { hidden = true },
+        buffers = { hidden = true },
       },
       extensions = {
         fzf = {
