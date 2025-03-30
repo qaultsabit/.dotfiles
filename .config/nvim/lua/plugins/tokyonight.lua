@@ -12,6 +12,7 @@ return {
         hl.TelescopeMatching = { fg = c.orange }
         hl.LineNrAbove = { fg = c.yellow }
         hl.LineNrBelow = { fg = c.yellow }
+        hl.LineNr = { fg = c.orange }
         hl.CursorLineNr = { fg = c.orange }
       end,
     })
