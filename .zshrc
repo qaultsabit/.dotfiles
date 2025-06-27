@@ -5,9 +5,12 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # rust
 . "$HOME/.cargo/env"
 
-# # go
+# go
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
+
+# java
+export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
 
 # node
 export NVM_DIR="$HOME/.nvm"

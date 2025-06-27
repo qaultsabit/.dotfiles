@@ -47,6 +47,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+  pattern = "java",
+  callback = function()
+    local ok, java = pcall(require, "java")
+    if ok then
+      java.setup({})
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
   pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "lua" },
   callback = function()
     vim.opt_local.tabstop = 2
