@@ -14,6 +14,7 @@ return {
       "toml",
       "go",
       "gomod",
+      "java",
       "javascript",
       "typescript",
       "c",

@@ -37,6 +37,12 @@ return {
       actions = { open_file = { window_picker = { enable = false } } },
     })
 
-    vim.keymap.set("n", "\\", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "file explorer", noremap = true, silent = true })
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "NvimTree",
+      callback = function()
+        vim.keymap.set("n", "<Esc>", ":NvimTreeClose<CR>", { buffer = true, silent = true })
+      end,
+    })
   end,
 }
