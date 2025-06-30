@@ -69,25 +69,13 @@ return {
     require("telescope").load_extension("fzf")
 
     local keymap = vim.keymap.set
-    keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true, desc = "find files" })
-    keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true, desc = "live grep" })
-    keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true, desc = "find buffers" })
-    keymap("n", "<leader>fs", "<cmd>Telescope builtin<CR>", { noremap = true, silent = true, desc = "find telescope" })
-    keymap("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { noremap = true, silent = true, desc = "find keymaps" })
-    keymap(
-      "n",
-      "<leader>f/",
-      "<cmd>Telescope current_buffer_fuzzy_find<CR>",
-      { noremap = true, silent = true, desc = "find current buffer" }
-    )
-    keymap("n", "<leader>fm", "<cmd>Telescope marks<CR>", { noremap = true, silent = true, desc = "find marks" })
-    keymap("n", "<leader>fq", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true, desc = "find quickfix" })
-    -- diagnostics
-    keymap(
-      "n",
-      "<leader>fd",
-      "<cmd>Telescope diagnostics<CR>",
-      { noremap = true, silent = true, desc = "find diagnostics" }
-    )
+    keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true, desc = "find files" })
+    keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true, desc = "live grep" })
+    keymap("n", "<leader>n", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true, desc = "find buffers" })
+    keymap("n", "<leader>s", "<cmd>Telescope builtin<CR>", { noremap = true, silent = true, desc = "find telescope" })
+    keymap("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { noremap = true, silent = true, desc = "find keymaps" })
+    keymap("n", "<leader>m", "<cmd>Telescope marks<CR>", { noremap = true, silent = true, desc = "find marks" })
+    keymap("n", "<leader>y", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true, desc = "find quickfix" })
+    keymap("n", "<leader>d", "<cmd>Telescope diagnostics<CR>", { noremap = true, silent = true, desc = "diagnostics" })
   end,
 }

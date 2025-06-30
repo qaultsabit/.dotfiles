@@ -30,7 +30,6 @@ vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostic quicklist" })
 vim.keymap.set("i", "jk", "<Esc>")
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "move to left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "move to right window" })
@@ -38,6 +37,14 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "move to bottom window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "move to top window" })
 vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bp<CR>", { desc = "previous buffer" })
+
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostics" })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function()
+    vim.keymap.set("n", "q", "<cmd>lclose<CR>", { buffer = true })
+  end,
+})
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
