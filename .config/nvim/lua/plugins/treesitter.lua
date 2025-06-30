@@ -10,6 +10,7 @@ return {
     ensure_installed = {
       "bash",
       "lua",
+      "python",
       "rust",
       "toml",
       "go",

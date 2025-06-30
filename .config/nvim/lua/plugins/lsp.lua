@@ -6,6 +6,7 @@ return {
       "williamboman/mason-lspconfig.nvim",
       { "j-hui/fidget.nvim", opts = {} },
       "hrsh7th/cmp-nvim-lsp",
+      { "mfussenegger/nvim-jdtls" },
     },
     config = function()
       local telescope = require("telescope.builtin")
@@ -63,6 +64,26 @@ return {
       require("mason-lspconfig").setup({
         function(server_name)
           lspconfig[server_name].setup({})
+        end,
+      })
+
+      local jdtls = require("jdtls")
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "java",
+        callback = function()
+          local home = os.getenv("HOME")
+          local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+          local config = {
+            cmd = {
+              "jdtls",
+              "-data",
+              workspace_folder,
+            },
+            root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "gradlew" }),
+          }
+          jdtls.start_or_attach(config)
         end,
       })
     end,
