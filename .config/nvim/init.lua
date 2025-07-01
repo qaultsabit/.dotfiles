@@ -38,14 +38,6 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "move to top window" })
 vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "next buffer" })
 vim.keymap.set("n", "<S-Tab>", "<cmd>bp<CR>", { desc = "previous buffer" })
 
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "diagnostics" })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.keymap.set("n", "q", "<cmd>lclose<CR>", { buffer = true })
-  end,
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()

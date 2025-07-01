@@ -68,14 +68,11 @@ return {
 
     require("telescope").load_extension("fzf")
 
-    local keymap = vim.keymap.set
-    keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true, desc = "find files" })
-    keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true, desc = "live grep" })
-    keymap("n", "<leader>n", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true, desc = "find buffers" })
-    keymap("n", "<leader>s", "<cmd>Telescope builtin<CR>", { noremap = true, silent = true, desc = "find telescope" })
-    keymap("n", "<leader>k", "<cmd>Telescope keymaps<CR>", { noremap = true, silent = true, desc = "find keymaps" })
-    keymap("n", "<leader>m", "<cmd>Telescope marks<CR>", { noremap = true, silent = true, desc = "find marks" })
-    keymap("n", "<leader>y", "<cmd>Telescope quickfix<CR>", { noremap = true, silent = true, desc = "find quickfix" })
-    keymap("n", "<leader>d", "<cmd>Telescope diagnostics<CR>", { noremap = true, silent = true, desc = "diagnostics" })
+    local map = vim.keymap.set
+    map("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true, desc = "files" })
+    map("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true, desc = "grep" })
+    map("n", "<leader>k", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true, desc = "buffers" })
+    map("n", "<leader>m", "<cmd>Telescope marks<CR>", { noremap = true, silent = true, desc = "marks" })
+    map("n", "<leader>?", "<cmd>Telescope keymaps<CR>", { noremap = true, silent = true, desc = "keymaps" })
   end,
 }
