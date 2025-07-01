@@ -4,7 +4,6 @@
 --
 -- Primarily focused on configuring the debugger for Go, but can
 -- be extended to other languages as well.
-
 return {
   -- NOTE: Yes, you can install new plugins here!
   "mfussenegger/nvim-dap",
@@ -33,13 +32,13 @@ return {
       { "<F1>", dap.step_into, desc = "debug: step into" },
       { "<F2>", dap.step_over, desc = "debug: step over" },
       { "<F3>", dap.step_out, desc = "debug: step out" },
-      { "<leader>b", dap.toggle_breakpoint, desc = "debug: toggle breakpoint" },
+      { "<leader>b", dap.toggle_breakpoint, desc = "breakpoint" },
       {
         "<leader>B",
         function()
           dap.set_breakpoint(vim.fn.input("breakpoint condition: "))
         end,
-        desc = "debug: set breakpoint",
+        desc = "breakpoint condition",
       },
       -- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
       { "<F7>", dapui.toggle, desc = "debug: see last session result" },

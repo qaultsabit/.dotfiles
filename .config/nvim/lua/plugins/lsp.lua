@@ -90,6 +90,16 @@ return {
         end,
       })
 
+      -- Tab settings for specific file types
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "lua" },
+        callback = function()
+          vim.opt_local.tabstop = 2
+          vim.opt_local.shiftwidth = 2
+          vim.opt_local.softtabstop = 2
+        end,
+      })
+
       -- Java LSP setup
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "java",
