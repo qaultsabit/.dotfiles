@@ -82,11 +82,12 @@ return {
         end,
       })
 
-      -- Close location list or quickfix with 'q'
+      -- Close location list or quickfix with 'q' and 'esc'
       vim.api.nvim_create_autocmd("FileType", {
         pattern = "qf",
         callback = function()
           vim.keymap.set("n", "q", "<cmd>lclose<CR>", { buffer = true })
+          vim.keymap.set("n", "<esc>", "<cmd>lclose<CR>", { buffer = true })
         end,
       })
 
@@ -97,26 +98,6 @@ return {
           vim.opt_local.tabstop = 2
           vim.opt_local.shiftwidth = 2
           vim.opt_local.softtabstop = 2
-        end,
-      })
-
-      -- Java LSP setup
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "java",
-        callback = function()
-          local home = os.getenv("HOME")
-          local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-
-          local config = {
-            cmd = { "jdtls", "-data", workspace_folder },
-            root_dir = require("jdtls.setup").find_root({
-              ".git",
-              "mvnw",
-              "gradlew",
-            }),
-          }
-
-          jdtls.start_or_attach(config)
         end,
       })
     end,
