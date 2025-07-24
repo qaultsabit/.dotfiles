@@ -14,7 +14,7 @@ cursor = "#ffffff"
 
 [window]
 padding = { x = 0, y = 0 }
-decorations = "Buttonless"
+# decorations = "Buttonless"
 
 [scrolling]
 history = 20000

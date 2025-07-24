@@ -19,10 +19,10 @@ export NVM_DIR="$HOME/.nvm"
 
 # prompt
 source /opt/homebrew/opt/gitstatus/gitstatus.prompt.zsh
-PROMPT="%F{yellow}%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f"
+PROMPT="%F{green}%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f"
 PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} '
 # PROMPT+=$'\n'  
-PROMPT+='%F{%(?.yellow.red)}%f '
+PROMPT+='%F{%(?.green.red)}%f '
 
 if [[ -z "$TMUX" ]]; then
   exec tmux
