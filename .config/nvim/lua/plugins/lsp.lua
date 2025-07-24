@@ -32,7 +32,7 @@ return {
           vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, { desc = "code action" })
           vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, { desc = "rename" })
           vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "diagnostics" })
-          vim.keymap.set("n", "<leader>D", telescope.diagnostics, { desc = "diagnostics" })
+          vim.keymap.set("n", "<leader>q", telescope.diagnostics, { desc = "diagnostics" })
 
           -- Highlight symbols under cursor if supported
           local client = vim.lsp.get_client_by_id(event.data.client_id)
