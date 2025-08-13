@@ -11,7 +11,6 @@ return {
     config = function()
       local telescope = require("telescope.builtin")
       local lspconfig = require("lspconfig")
-      local jdtls = require("jdtls")
 
       -- Autocmd to set up LSP-specific keymaps and highlighting
       vim.api.nvim_create_autocmd("LspAttach", {
