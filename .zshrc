@@ -1,6 +1,6 @@
 # zsh-plugins
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # rust
 . "$HOME/.cargo/env"
@@ -30,3 +30,5 @@ fi
 
 alias vim=nvim
 alias cat=bat
+
+export HOMEBREW_NO_AUTO_UPDATE=1

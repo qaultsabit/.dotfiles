@@ -2,7 +2,7 @@
 TERM = "xterm-256color"
 
 [font]
-size = 16.0
+size = 18.0
 normal = { family = "Lekton Nerd Font Mono", style = "Regular" }
 bold = { family = "Lekton Nerd Font Mono", style = "Bold" }
 italic = { family = "Lekton Nerd Font Mono", style = "Regular" }
@@ -13,8 +13,8 @@ text = "#181818"
 cursor = "#ffffff"
 
 [window]
-padding = { x = 0, y = 0 }
-# decorations = "Buttonless"
+padding = { x = 3, y = 3 }
+decorations = "Buttonless"
 
 [scrolling]
 history = 20000
