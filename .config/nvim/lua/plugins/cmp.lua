@@ -34,7 +34,7 @@ return {
       },
       preselect = cmp.PreselectMode.None,
       mapping = cmp.mapping.preset.insert({
-        ["<CR>"] = cmp.mapping.confirm({ select = true }),
+        ["<CR>"] = cmp.mapping.confirm(),
         ["<Tab>"] = cmp.mapping.select_next_item(),
         ["<S-Tab>"] = cmp.mapping.select_prev_item(),
         ["<C-e>"] = cmp.mapping.close(),
