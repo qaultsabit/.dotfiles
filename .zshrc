@@ -10,7 +10,8 @@ export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
 
 # java
-export PATH="/opt/homebrew/opt/openjdk@21/bin:$PATH"
+export JAVA_HOME=$(/usr/libexec/java_home -v 21)
+export PATH="$JAVA_HOME/bin:$PATH"
 
 # node
 export NVM_DIR="$HOME/.nvm"
