@@ -1,5 +1,3 @@
-_G.vim = vim
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
@@ -56,3 +54,5 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ import = "plugins" })
+
+vim.lsp.enable("postgres_lsp")
