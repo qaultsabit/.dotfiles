@@ -7,8 +7,9 @@ return {
       separator = "",
     },
     spec = {
-      { "<leader>t", group = "toggle" },
-      { "<leader>h", group = "git hunk", mode = { "n", "v" } },
+      { "<leader>t", group = "Toggle" },
+      { "<leader>h", group = "Git hunk", mode = { "n", "v" } },
+      { "<leader>f", group = "Telescope" },
     },
   },
 }

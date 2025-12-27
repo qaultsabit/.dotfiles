@@ -37,7 +37,7 @@ return {
       actions = { open_file = { window_picker = { enable = false } } },
     })
 
-    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "file explorer", noremap = true, silent = true })
+    vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", { desc = "Explorer", noremap = true, silent = true })
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "NvimTree",
       callback = function()
