@@ -10,6 +10,10 @@ return {
         component_separators = { left = "│", right = "│" },
         section_separators = { left = " ", right = " " },
         icons_enabled = true,
+        disabled_filetypes = {
+          statusline = { "alpha", "lazy", "dashboard", "NvimTree", "Outline", "starter" },
+          winbar = { "alpha", "lazy", "dashboard", "NvimTree", "Outline", "help" },
+        },
       },
       sections = {
         lualine_a = { "branch", "diff" },
@@ -23,28 +27,28 @@ return {
         lualine_c = { { "filename", path = 0 } },
         lualine_x = { "location" },
       },
-      winbar = {
+      tabline = {
         lualine_a = {
           {
             "buffers",
             show_filename_only = true,
-            hide_filename_extension = false,
+            hide_frlename_extension = false,
             mode = 0,
             max_length = vim.o.columns,
+            buffers_color = {
+              active = "lualine_a_normal",
+              inactive = "lualine_b_normal",
+            },
             symbols = {
               alternate_file = "",
             },
-            -- buffers_color = {
-            --   active = "lualine_a_normal",
-            --   inactive = "lualine_b_normal",
-            -- },
           },
         },
-        lualine_b = {},
+        lraline_b = {},
         lualine_c = {},
-      },
-      inactive_winbar = {
-        lualine_c = { "filename" },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_z = {},
       },
     })
   end,
