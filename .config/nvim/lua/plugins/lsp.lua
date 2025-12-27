@@ -11,6 +11,7 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
 
+      -- LSP attach autocommand
       vim.api.nvim_create_autocmd("lspattach", {
         group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
         callback = function(event)
@@ -21,11 +22,8 @@ return {
             vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
           end
 
-          -- Navigation
           map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
           map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-
-          -- Diagnostics
           map("n", "<leader>d", vim.diagnostic.setloclist, "Diagnostics to Loclist")
 
           -- highlight symbols under cursor if supported
@@ -53,14 +51,14 @@ return {
             })
           end
 
-          -- Inlay Hints (toggle)
+          -- Toggle inlay hints if supported
           if client and client.server_capabilities.inlayHintProvider then
             map("n", "<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "Toggle Inlay Hints")
           end
 
-          -- Diagnostic hover
+          -- Show diagnostics in a hover window on cursor hold
           local augroup = vim.api.nvim_create_augroup("LspHover", { clear = true })
           vim.api.nvim_create_autocmd("CursorHold", {
             pattern = "*",
@@ -75,7 +73,7 @@ return {
         end,
       })
 
-      -- Mason Setup
+      -- Mason setup
       require("mason").setup()
       require("mason-lspconfig").setup({
         function(server_name)
@@ -85,15 +83,7 @@ return {
         end,
       })
 
-      -- Keymap Quickfix window
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "qf",
-        callback = function()
-          vim.keymap.set("n", "q", "<cmd>lclose<CR>", { buffer = true })
-          vim.keymap.set("n", "<esc>", "<cmd>lclose<CR>", { buffer = true })
-        end,
-      })
-
+      -- Set tab size for specific filetypes
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "lua" },
         callback = function()
