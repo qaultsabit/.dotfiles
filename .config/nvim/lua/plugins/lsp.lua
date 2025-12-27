@@ -24,7 +24,7 @@ return {
 
           map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
           map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-          map("n", "<leader>d", vim.diagnostic.setloclist, "Diagnostics to Loclist")
+          map("n", "<leader>d", vim.diagnostic.setloclist, "Diagnostics")
 
           -- highlight symbols under cursor if supported
           if client and client.server_capabilities.documentHighlightProvider then
@@ -90,6 +90,23 @@ return {
           vim.opt_local.tabstop = 2
           vim.opt_local.shiftwidth = 2
           vim.opt_local.softtabstop = 2
+        end,
+      })
+
+      -- Customize quickfix window
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "qf",
+        callback = function()
+          local opts = { silent = true, noremap = true, buffer = true }
+
+          vim.keymap.set("n", "q", "<cmd>cclose<cr>", opts)
+          vim.keymap.set("n", "<Esc>", "<cmd>cclose<cr>", opts)
+          vim.keymap.set("n", "<Tab>", "", opts)
+          vim.opt_local.buflisted = false
+          vim.opt_local.number = false
+          vim.opt_local.relativenumber = false
+          vim.opt_local.signcolumn = "no"
+          vim.opt_local.cursorline = false
         end,
       })
     end,
