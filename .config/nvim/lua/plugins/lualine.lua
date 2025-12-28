@@ -31,6 +31,7 @@ return {
         lualine_a = {
           {
             "buffers",
+            icons_enabled = false,
             show_filename_only = true,
             hide_frlename_extension = false,
             mode = 0,
