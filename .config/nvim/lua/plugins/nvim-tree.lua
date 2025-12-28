@@ -5,7 +5,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local screen_w, screen_h = vim.o.columns, vim.o.lines
-    local win_w, win_h = math.floor(screen_w * 0.5), math.floor(screen_h * 0.8)
+    local win_w, win_h = math.floor(screen_w * 0.85), math.floor(screen_h * 0.85)
     local row, col = ((screen_h - win_h) / 2) - 1, (screen_w - win_w) / 2
 
     require("nvim-tree").setup({
