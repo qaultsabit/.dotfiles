@@ -22,9 +22,9 @@ return {
             vim.keymap.set(mode, lhs, rhs, vim.tbl_extend("force", opts, { desc = desc }))
           end
 
-          map("n", "gd", vim.lsp.buf.definition, "Go to Definition")
-          map("n", "gD", vim.lsp.buf.declaration, "Go to Declaration")
-          map("n", "<leader>d", vim.diagnostic.setloclist, "Diagnostics")
+          map("n", "gd", vim.lsp.buf.definition, "Go to definition")
+          map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("n", "<leader>q", vim.diagnostic.setloclist, "Diagnostics")
 
           -- highlight symbols under cursor if supported
           if client and client.server_capabilities.documentHighlightProvider then
