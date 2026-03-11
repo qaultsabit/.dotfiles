@@ -44,7 +44,13 @@ return {
         results_title = false,
         dynamic_preview_title = "",
         borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
-        file_ignore_patterns = { "%.git/", "node_modules/" },
+        file_ignore_patterns = {
+          "%.git/",
+          "node_modules/",
+          "bin/",
+          "target/.*",
+          "%.class",
+        },
         mappings = {
           i = {
             ["<esc>"] = require("telescope.actions").close,
