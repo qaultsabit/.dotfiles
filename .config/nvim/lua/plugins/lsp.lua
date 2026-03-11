@@ -9,7 +9,6 @@ return {
     },
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
 
       -- LSP attach autocommand
       vim.api.nvim_create_autocmd("lspattach", {
@@ -76,11 +75,34 @@ return {
       -- Mason setup
       require("mason").setup()
       require("mason-lspconfig").setup({
+        ensure_installed = { "jdtls" },
+        automatic_installation = true,
         function(server_name)
-          lspconfig[server_name].setup({
+          vim.lsp.config[server_name].setup({
             capabilities = capabilities,
           })
         end,
+      })
+
+      -- Java setup
+      vim.lsp.config("jdtls", {
+        capabilities = capabilities,
+        root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+        settings = {
+          java = {
+            format = {
+              enabled = true,
+            },
+            signatureHelp = { enabled = true },
+            contentProvider = { preferred = "fernflower" },
+            completion = {
+              favoriteStaticMembers = {
+                "org.junit.jupiter.api.Assertions.*",
+                "java.util.Objects.requireNonNull",
+              },
+            },
+          },
+        },
       })
 
       -- Set tab size for specific filetypes
