@@ -75,34 +75,11 @@ return {
       -- Mason setup
       require("mason").setup()
       require("mason-lspconfig").setup({
-        ensure_installed = { "jdtls" },
-        automatic_installation = true,
         function(server_name)
           vim.lsp.config[server_name].setup({
             capabilities = capabilities,
           })
         end,
-      })
-
-      -- Java setup
-      vim.lsp.config("jdtls", {
-        capabilities = capabilities,
-        root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
-        settings = {
-          java = {
-            format = {
-              enabled = true,
-            },
-            signatureHelp = { enabled = true },
-            contentProvider = { preferred = "fernflower" },
-            completion = {
-              favoriteStaticMembers = {
-                "org.junit.jupiter.api.Assertions.*",
-                "java.util.Objects.requireNonNull",
-              },
-            },
-          },
-        },
       })
 
       -- Set tab size for specific filetypes
@@ -131,6 +108,13 @@ return {
           vim.opt_local.cursorline = false
         end,
       })
+    end,
+  },
+  {
+    "nvim-java/nvim-java",
+    config = function()
+      require("java").setup()
+      vim.lsp.enable("jdtls")
     end,
   },
 }
