@@ -27,6 +27,6 @@ source /opt/homebrew/opt/gitstatus/gitstatus.prompt.zsh
 PROMPT="%F{green}%$((-GITSTATUS_PROMPT_LEN-1))<…<%~%<<%f"
 PROMPT+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} '
 # PROMPT+=$'\n'  
-PROMPT+='%F{%(?.green.red)}%f '
+PROMPT+='%F{%(?.green.red)}$%f '
 
 export HOMEBREW_NO_AUTO_UPDATE=1
