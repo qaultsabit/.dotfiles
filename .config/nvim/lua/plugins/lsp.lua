@@ -74,13 +74,8 @@ return {
 
       -- Mason setup
       require("mason").setup()
-      require("mason-lspconfig").setup({
-        function(server_name)
-          vim.lsp.config[server_name].setup({
-            capabilities = capabilities,
-          })
-        end,
-      })
+      vim.lsp.config("*", { capabilities = capabilities })
+      require("mason-lspconfig").setup({})
 
       -- Set tab size for specific filetypes
       vim.api.nvim_create_autocmd("FileType", {

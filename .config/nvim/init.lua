@@ -41,7 +41,7 @@ vim.keymap.set("n", "gT", "<cmd>bp<CR>", { desc = "Go to previous buffer" })
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    vim.hl.on_yank()
   end,
 })
 
