@@ -47,7 +47,8 @@ return {
         file_ignore_patterns = {
           "%.git/",
           "node_modules/",
-          "bin/",
+          "^bin/",
+          "/bin/",
           "target/.*",
           "%.class",
         },
@@ -61,7 +62,6 @@ return {
       },
       pickers = {
         find_files = { hidden = true },
-        buffers = { hidden = true },
       },
       extensions = {
         fzf = {

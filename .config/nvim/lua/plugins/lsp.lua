@@ -27,7 +27,7 @@ return {
 
           -- highlight symbols under cursor if supported
           if client and client.server_capabilities.documentHighlightProvider then
-            local group = vim.api.nvim_create_augroup("lsp-highlight", { clear = true })
+            local group = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               group = group,
@@ -43,9 +43,10 @@ return {
 
             vim.api.nvim_create_autocmd("LspDetach", {
               group = group,
-              callback = function()
+              buffer = event.buf,
+              callback = function(ev)
                 vim.lsp.buf.clear_references()
-                vim.api.nvim_del_augroup_by_id(group)
+                vim.api.nvim_clear_autocmds({ group = group, buffer = ev.buf })
               end,
             })
           end
@@ -56,24 +57,20 @@ return {
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "Toggle Inlay Hints")
           end
+        end,
+      })
 
-          -- Show diagnostics in a hover window on cursor hold
-          local augroup = vim.api.nvim_create_augroup("LspHover", { clear = true })
-          vim.api.nvim_create_autocmd("CursorHold", {
-            pattern = "*",
-            group = augroup,
-            callback = function()
-              vim.diagnostic.open_float(nil, {
-                focusable = false,
-                scope = "cursor",
-              })
-            end,
+      -- Show diagnostics in a hover window on cursor hold
+      vim.api.nvim_create_autocmd("CursorHold", {
+        group = vim.api.nvim_create_augroup("LspHover", { clear = true }),
+        callback = function()
+          vim.diagnostic.open_float(nil, {
+            focusable = false,
+            scope = "cursor",
           })
         end,
       })
 
-      -- Mason setup
-      require("mason").setup()
       vim.lsp.config("*", { capabilities = capabilities })
       require("mason-lspconfig").setup({})
 

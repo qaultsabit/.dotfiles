@@ -33,7 +33,7 @@ return {
             "buffers",
             icons_enabled = false,
             show_filename_only = true,
-            hide_frlename_extension = false,
+            hide_filename_extension = false,
             mode = 0,
             max_length = vim.o.columns,
             buffers_color = {
@@ -45,7 +45,7 @@ return {
             },
           },
         },
-        lraline_b = {},
+        lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},

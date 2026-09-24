@@ -36,10 +36,6 @@ vim.opt.inccommand = "split"
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "move to left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "move to right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "move to bottom window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "move to top window" })
 -- vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "next buffer" })
 -- vim.keymap.set("n", "<S-Tab>", "<cmd>bp<CR>", { desc = "previous buffer" })
 vim.keymap.set("n", "gt", "<cmd>bn<CR>", { desc = "Go to next buffer" })
