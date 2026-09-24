@@ -19,6 +19,7 @@ vim.g.clipboard = {
 vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
+vim.cmd([[colorscheme retrobox]])
 vim.opt.breakindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
