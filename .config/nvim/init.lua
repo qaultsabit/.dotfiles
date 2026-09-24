@@ -10,6 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.mouse = "a"
+vim.cmd([[colorscheme retrobox]])
 vim.g.clipboard = {
   name = "win32yank",
   copy = { ["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf" },
@@ -19,7 +20,6 @@ vim.g.clipboard = {
 vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
-vim.cmd([[colorscheme retrobox]])
 vim.opt.breakindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
