@@ -1,0 +1,21 @@
+# [env]
+# TERM = "xterm-256color"
+
+[font]
+size = 11.0
+normal = { family = "JetBrainsMono Nerd Font", style = "Light" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Medium" }
+italic = { family = "JetBrainsMono Nerd Font", style = "LightItalic" }
+
+[colors]
+[colors.cursor]
+text = "#181818"
+cursor = "#ffffff"
+
+[window]
+padding = { x = 3, y = 3 }
+decorations = "Buttonless"
+
+[scrolling]
+history = 1000
+multiplier = 3
