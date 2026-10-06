@@ -17,9 +17,6 @@ vim.g.clipboard = {
   paste = { ["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf" },
   cache_enabled = 0,
 }
-vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
-end)
 vim.opt.breakindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
