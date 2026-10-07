@@ -25,6 +25,7 @@ return {
       css = { "prettier" },
       javascript = { "prettier" },
       typescript = { "prettier" },
+      python = { "ruff_organize_imports", "ruff_format" },
     },
   },
 }
