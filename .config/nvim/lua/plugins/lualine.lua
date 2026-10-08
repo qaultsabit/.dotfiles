@@ -37,8 +37,8 @@ return {
             mode = 0,
             max_length = vim.o.columns,
             buffers_color = {
-              active = "lualine_a_normal",
-              inactive = "lualine_b_normal",
+              active = "TabLineSel",
+              inactive = "TabLine",
             },
             symbols = {
               alternate_file = "",
