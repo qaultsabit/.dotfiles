@@ -10,13 +10,7 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.mouse = "a"
-vim.cmd([[colorscheme retrobox]])
-vim.g.clipboard = {
-  name = "win32yank",
-  copy = { ["+"] = "win32yank.exe -i --crlf", ["*"] = "win32yank.exe -i --crlf" },
-  paste = { ["+"] = "win32yank.exe -o --lf", ["*"] = "win32yank.exe -o --lf" },
-  cache_enabled = 0,
-}
+vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -30,6 +24,7 @@ vim.opt.timeoutlen = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
+vim.cmd.colorscheme("retrobox")
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>")
