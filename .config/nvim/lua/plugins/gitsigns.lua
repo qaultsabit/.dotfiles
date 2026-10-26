@@ -53,7 +53,6 @@ return {
 
       -- Toggles
       map("n", "<leader>tb", gitsigns.toggle_current_line_blame, { desc = "toggle git show blame line" })
-      -- map("n", "<leader>td", gitsigns.toggle_deleted, { desc = "toggle git show deleted" })
       map("n", "<leader>td", gitsigns.preview_hunk_inline, { desc = "toggle git show deleted" })
       map("n", "<leader>tw", gitsigns.toggle_word_diff, { desc = "toggle git word diff" })
     end,

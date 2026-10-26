@@ -4,27 +4,27 @@ return {
   lazy = false,
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    local screen_w, screen_h = vim.o.columns, vim.o.lines
-    local win_w, win_h = math.floor(screen_w * 0.85), math.floor(screen_h * 0.85)
-    local row, col = ((screen_h - win_h) / 2) - 1, (screen_w - win_w) / 2
-
     require("nvim-tree").setup({
       filters = { dotfiles = false, custom = { "^.git$" } },
       disable_netrw = true,
       view = {
         float = {
           enable = true,
-          open_win_config = {
-            relative = "editor",
-            border = "solid",
-            width = win_w,
-            height = win_h,
-            row = row,
-            col = col,
-          },
+          -- recomputed on every open so it follows terminal resizes
+          open_win_config = function()
+            local win_w, win_h = math.floor(vim.o.columns * 0.85), math.floor(vim.o.lines * 0.85)
+            return {
+              relative = "editor",
+              border = "solid",
+              width = win_w,
+              height = win_h,
+              row = math.floor((vim.o.lines - win_h) / 2) - 1,
+              col = math.floor((vim.o.columns - win_w) / 2),
+            }
+          end,
         },
         width = function()
-          return win_w
+          return math.floor(vim.o.columns * 0.85)
         end,
       },
       renderer = {

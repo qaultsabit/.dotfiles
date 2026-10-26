@@ -35,22 +35,25 @@ return {
             show_filename_only = true,
             hide_filename_extension = false,
             mode = 0,
-            max_length = vim.o.columns,
+            max_length = function()
+              return vim.o.columns
+            end,
             buffers_color = {
-              active = "TabLineSel",
-              inactive = "TabLine",
+              active = "TabLineFill",
+              inactive = "TabLineSel",
             },
             symbols = {
               alternate_file = "",
             },
           },
         },
-        lualine_b = {},
-        lualine_c = {},
-        lualine_x = {},
-        lualine_y = {},
-        lualine_z = {},
-      },
+        lualine_c = {
+          {
+            function() return "" end,
+            color = "TabLineFill",
+          }
+        },
+      }
     })
   end,
 }

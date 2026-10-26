@@ -24,12 +24,10 @@ vim.opt.timeoutlen = 250
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 vim.opt.inccommand = "split"
-vim.cmd.colorscheme("retrobox")
+vim.cmd.colorscheme("habamax")
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("i", "jk", "<Esc>")
--- vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>", { desc = "next buffer" })
--- vim.keymap.set("n", "<S-Tab>", "<cmd>bp<CR>", { desc = "previous buffer" })
 vim.keymap.set("n", "gt", "<cmd>bn<CR>", { desc = "Go to next buffer" })
 vim.keymap.set("n", "gT", "<cmd>bp<CR>", { desc = "Go to previous buffer" })
 
@@ -47,7 +45,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     error("Error cloning lazy.nvim:\n" .. out)
   end
-end ---@diagnostic disable-next-line: undefined-field
+end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ spec = { import = "plugins" }, rocks = { enabled = false } })

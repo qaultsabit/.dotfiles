@@ -74,6 +74,12 @@ return {
       vim.lsp.config("*", { capabilities = capabilities })
       require("mason-lspconfig").setup({})
 
+      -- rust-analyzer comes from rustup (`rustup component add rust-analyzer`), not Mason
+      vim.lsp.config("rust_analyzer", {
+        settings = { ["rust-analyzer"] = { check = { command = "clippy" } } },
+      })
+      vim.lsp.enable("rust_analyzer")
+
       -- Set tab size for specific filetypes
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "html", "css", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "lua" },
@@ -90,9 +96,8 @@ return {
         callback = function()
           local opts = { silent = true, noremap = true, buffer = true }
 
-          vim.keymap.set("n", "q", "<cmd>cclose<cr>", opts)
-          vim.keymap.set("n", "<Esc>", "<cmd>cclose<cr>", opts)
-          vim.keymap.set("n", "<Tab>", "", opts)
+          vim.keymap.set("n", "q", "<cmd>close<cr>", opts)
+          vim.keymap.set("n", "<Esc>", "<cmd>close<cr>", opts)
           vim.opt_local.buflisted = false
           vim.opt_local.number = false
           vim.opt_local.relativenumber = false
