@@ -50,7 +50,7 @@ return {
           "^bin/",
           "/bin/",
           "target/.*",
-          "%.class",
+          "%.class$",
         },
         mappings = {
           i = {
@@ -72,7 +72,8 @@ return {
       },
     })
 
-    require("telescope").load_extension("fzf")
+    -- fzf-native is skipped when make is missing
+    pcall(require("telescope").load_extension, "fzf")
 
     local map = vim.keymap.set
     local opts = { noremap = true, silent = true }

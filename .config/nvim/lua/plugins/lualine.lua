@@ -35,23 +35,26 @@ return {
             show_filename_only = true,
             hide_filename_extension = false,
             mode = 0,
+            -- fixed-width tabs: truncate long names, center short ones
+            fmt = function(name)
+              local width = 20
+              if vim.fn.strdisplaywidth(name) > width then
+                return vim.fn.strcharpart(name, 0, width - 1) .. "…"
+              end
+              local pad = width - vim.fn.strdisplaywidth(name)
+              return string.rep(" ", math.floor(pad / 2)) .. name .. string.rep(" ", math.ceil(pad / 2))
+            end,
             max_length = function()
               return vim.o.columns
             end,
             buffers_color = {
-              active = "TabLineFill",
-              inactive = "TabLineSel",
+              active = "TabLineSel",
+              inactive = "TabLine",
             },
             symbols = {
               alternate_file = "",
             },
           },
-        },
-        lualine_c = {
-          {
-            function() return "" end,
-            color = "TabLineFill",
-          }
         },
       }
     })
